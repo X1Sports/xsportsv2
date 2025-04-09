@@ -1,0 +1,33 @@
+/* Fix for video showing above footer */
+.fixed[class*="z-[-1]"] {
+  clip-path: polygon(0 0, 100% 0, 100% 100vh, 0 100vh);
+}
+
+/* Ensure there are no gaps between sections */
+section + section {
+  margin-top: 0 \!important;
+}
+
+/* Add dark background to footer area */
+.bg-[#121212] {
+  position: relative;
+  z-index: 1;
+}
+
+footer {
+  position: relative;
+  z-index: 10;
+  background-color: #0a0a0a;
+}
+
+/* Additional styles to prevent video from showing in unwanted areas */
+body {
+  background-color: #0a0a0a \!important;
+}
+
+/* Ensure complete coverage for each section */
+section {
+  position: relative;
+  z-index: 1;
+  background-color: inherit;
+}

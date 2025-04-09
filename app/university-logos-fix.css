@@ -1,0 +1,39 @@
+/* Force black backgrounds for university logos */
+div:has(> img[src*="logo"]) {
+  background-color: #000000 !important;
+}
+
+/* Specific fixes for problematic logos */
+div:has(> img[src*="washington-state-logo-black"]),
+div:has(> img[src*="harvard-logo-black"]),
+div:has(> img[src*="lsu-logo-black"]) {
+  background-color: #000000 !important;
+}
+
+/* Ensure the logo containers have black backgrounds */
+.university-logo-container,
+[class*="university-logo"],
+[class*="school-logo"],
+[class*="college-logo"] {
+  background-color: #000000 !important;
+}
+
+/* Make sure video elements are not affected by logo fixes */
+video,
+div:has(> video) {
+  background-color: transparent !important;
+}
+
+/* Ensure the hero section is not affected */
+section:first-of-type,
+.hero-section,
+section:first-of-type *,
+.hero-section * {
+  background-color: transparent !important;
+}
+
+/* Exception for logo containers */
+section:first-of-type .university-logo-container,
+.hero-section .university-logo-container {
+  background-color: #000000 !important;
+}

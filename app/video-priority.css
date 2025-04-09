@@ -1,0 +1,39 @@
+/* Ensure videos are not affected by logo fixes */
+video {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+  background-color: transparent !important;
+}
+
+/* Hero section video specific rules */
+section:first-of-type video,
+.hero-section video,
+[class*="video-container"] video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  background-color: transparent !important;
+}
+
+/* Ensure video containers don't get black backgrounds from logo fixes */
+section:first-of-type,
+.hero-section,
+[class*="video-container"],
+div:has(> video) {
+  background-color: transparent !important;
+}
+
+/* Override any logo fixes for video elements */
+[class*="logo-fix"] video,
+[class*="background-fix"] video {
+  background-color: transparent !important;
+}
+
+/* Ensure video parent containers are not affected */
+div:has(> video) {
+  background-color: transparent !important;
+}

@@ -1,0 +1,28 @@
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+.logo-scroll {
+  animation: scroll 30s linear infinite;
+  white-space: nowrap;
+  background: transparent \!important;
+}
+
+.logo-scroll-container {
+  overflow: hidden;
+  position: relative;
+  background: transparent \!important;
+}
+
+.logo-scroll-item {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 40px;
+  background: transparent \!important;
+}

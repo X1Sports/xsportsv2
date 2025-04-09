@@ -1,0 +1,260 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 220 13% 10%; /* Dark gray with slight blue tint */
+    --foreground: 0 0% 95%; /* Almost white */
+
+    --card: 220 13% 12%; /* Slightly lighter than background */
+    --card-foreground: 0 0% 95%; /* Almost white */
+
+    --popover: 220 13% 12%; /* Same as card */
+    --popover-foreground: 0 0% 95%; /* Almost white */
+
+    --primary: 220 70% 50%; /* Dark blue */
+    --primary-foreground: 0 0% 100%; /* White */
+
+    --secondary: 220 13% 18%; /* Slightly lighter gray */
+    --secondary-foreground: 0 0% 95%; /* Almost white */
+
+    --muted: 220 13% 16%; /* Muted gray */
+    --muted-foreground: 0 0% 70%; /* Light gray */
+
+    --accent: 220 13% 18%; /* Same as secondary */
+    --accent-foreground: 0 0% 95%; /* Almost white */
+
+    --destructive: 0 84% 60%; /* Red */
+    --destructive-foreground: 0 0% 95%; /* Almost white */
+
+    --border: 220 13% 18%; /* Dark gray border */
+    --input: 220 13% 18%; /* Dark gray input */
+    --ring: 220 70% 50%; /* Dark blue ring */
+
+    --radius: 0.5rem;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+  }
+}
+
+@layer utilities {
+  .animate-fade-in {
+    animation: fadeIn 0.5s ease-in-out;
+  }
+
+  .animate-pulse {
+    animation: pulse 1.5s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  }
+
+  .animate-slideIn {
+    animation: slideIn 0.3s ease-out forwards;
+  }
+
+  .animate-bounce {
+    animation: bounce 2s infinite;
+  }
+
+  .animate-draw-line {
+    animation: drawLine 0.6s ease-in-out forwards;
+  }
+
+  @keyframes fadeIn {
+    from {
+      opacity: 0;
+      transform: translateY(10px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes pulse {
+    0%,
+    100% {
+      opacity: 1;
+    }
+    50% {
+      opacity: 0.5;
+    }
+  }
+
+  @keyframes slideIn {
+    from {
+      opacity: 0;
+      transform: translateY(20px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+
+  @keyframes bounce {
+    0%,
+    20%,
+    50%,
+    80%,
+    100% {
+      transform: translateY(0);
+    }
+    40% {
+      transform: translateY(-10px);
+    }
+    60% {
+      transform: translateY(-5px);
+    }
+  }
+
+  @keyframes drawLine {
+    from {
+      stroke-dashoffset: 100;
+    }
+    to {
+      stroke-dashoffset: 0;
+    }
+  }
+}
+
+/* Add this at the end of your globals.css file */
+
+.university-logo-container,
+[class*="university-logo"],
+[class*="school-logo"],
+[class*="college-logo"] {
+  background-color: transparent !important;
+}
+
+/* Target any elements that might contain university logos */
+[class*="logo-container"] img[src*="logo"],
+[class*="partner"] img[src*="logo"],
+[class*="university"] img[src*="logo"] {
+  background-color: transparent !important;
+}
+
+/* Logo transparency fix */
+.logo-transparent {
+  background-color: transparent !important;
+  mix-blend-mode: multiply !important;
+  filter: brightness(1.2) contrast(1.2);
+}
+
+.logo-container, 
+.logo-container > div {
+  background-color: transparent !important;
+}
+
+/* Override any existing background colors for logos */
+[class*="logo-container"] img,
+[class*="university"] img,
+[class*="logo"] img {
+  background-color: transparent !important;
+}
+
+/* Add these rules at the end of the file, after all the existing CSS */
+
+/* Force transparent backgrounds for specific university logos */
+.university-logo-container img[src*="logo"],
+div:has(> img[src*="logo"]) {
+  background-color: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+/* Target parent containers of these logos */
+div:has(> img[src*="logo"]) {
+  background-color: transparent !important;
+}
+
+/* Highest specificity selector to override any other styles */
+body [class*="logo"] img {
+  background-color: transparent !important;
+}
+
+body [class*="logo"]:has(img) {
+  background-color: transparent !important;
+}
+
+/* Force transparent background on all university logo containers */
+[class*="university"] [class*="logo"] > div,
+[class*="university"] [class*="logo"] > div > div {
+  background-color: transparent !important;
+}
+
+/* Specific fixes for all logos */
+img[alt*="University"] {
+  background-color: transparent !important;
+  mix-blend-mode: multiply;
+}
+
+div:has(> img[alt*="University"]) {
+  background-color: transparent !important;
+}
+
+/* Extremely specific selector */
+body div[class*="grid"] div[class*="flex"] img {
+  background-color: transparent !important;
+}
+
+body div[class*="grid"] div[class*="flex"]:has(img) {
+  background-color: transparent !important;
+}
+
+/* Ensure videos are not affected by logo fixes */
+video {
+  display: block !important;
+  visibility: visible !important;
+  opacity: 1 !important;
+  z-index: 1 !important;
+  background-color: transparent !important;
+}
+
+/* Hero section video specific rules */
+section:first-of-type video,
+.hero-section video,
+[class*="video-container"] video {
+  position: absolute !important;
+  inset: 0 !important;
+  width: 100% !important;
+  height: 100% !important;
+  object-fit: cover !important;
+  background-color: transparent !important;
+}
+
+/* Ensure video containers have no background color */
+div:has(> video),
+section:has(video),
+.video-container {
+  background-color: transparent !important;
+}
+
+.marquee-container {
+  position: relative;
+  width: 100%;
+  overflow: hidden;
+  background-color: transparent;
+}
+
+.marquee {
+  display: inline-block;
+  white-space: nowrap;
+  animation: marquee 30s linear infinite;
+  background-color: transparent;
+}
+
+@keyframes marquee {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-100%);
+  }
+}
